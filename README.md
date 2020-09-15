@@ -7,6 +7,7 @@
 #### Logo Segmentation by SegNet
 ![ex_screenshot](./result/train_512/result.png)
 
+---
 ### Todo
 * Data postprocessing
 * Code modularization and Execution
