@@ -7,7 +7,8 @@ import prediction
 import inpainting
 
 
-def main():    
+def main():
+        
     save_path = 'frames/'
     saved_path = 'frames_output/'
     
@@ -22,7 +23,7 @@ def main():
     model = prediction.call_model('pred_model')
     preds = prediction.predict(model)
     prediction.postprocessing(preds)
-    inpainting.inpaiting(IMG_siz)
+    inpainting.inpainting(IMG_siz)
     image_processing.frame2video(saved_path,outvideofilename,fps_set)    
 
 if __name__ == '__main__':
