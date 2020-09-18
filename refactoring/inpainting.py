@@ -11,9 +11,8 @@ def inpaint(img,mask):
                      inpaintRadius=3, flags=cv2.INPAINT_TELEA)
     return res
 
-def inpainting(IMG_SIZE):
+def inpainting(IMG_SIZE,mask_data):
     data_list = sorted(glob.glob('frames/*.jpg'))
-    mask_data = np.load('mask_data.npy')
     for i in range(len(data_list)):
         img = cv2.imread(data_list[i], cv2.IMREAD_COLOR)
         img_siz = img.shape

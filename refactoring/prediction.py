@@ -7,8 +7,7 @@ def call_model(modelname):
     model = tf.keras.models.load_model(modelname)
     return model
 
-def predict(model):
-    img_data = np.load('img_data.npy')
+def predict(model,img_data):
     preds = model.predict(img_data)
     return preds
 
@@ -19,4 +18,4 @@ def postprocessing(preds):
         pred[pred >= 0.05] = 255
         mask_data[i]=pred
     mask_data= np.array(mask_data,dtype=np.uint8)
-    np.save('mask_data.npy',mask_data)
+    return mask_data
