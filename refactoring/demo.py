@@ -25,7 +25,7 @@ def main():
     img_data = preprocessing.preprocessing(save_path,IMG_siz)
     model = prediction.call_model('pred_model')
     preds = prediction.predict(model,img_data)
-    mask_data = prediction.postprocessing(preds)
+    mask_data = prediction.postprocessing(preds,IMG_siz)
     inpainting.inpainting(IMG_siz,mask_data)
     image_processing.frame2video(saved_path,outvideofilename,fps_set)    
 
