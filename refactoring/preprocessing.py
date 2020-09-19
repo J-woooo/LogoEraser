@@ -13,4 +13,4 @@ def preprocessing(save_path,IMG_SIZE):
         img_res = resize(img, output_shape=(IMG_SIZE, IMG_SIZE, 3))
         img_data[i]=img_res
     img_data= np.array(img_data,dtype=np.double)
-    return img_data
+    return img_data, data_list

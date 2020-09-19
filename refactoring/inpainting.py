@@ -12,9 +12,9 @@ def inpaint(img,mask):
     return res
 
 def inpainting(IMG_SIZE,mask_data):
-    data_list = sorted(glob.glob('frames/*.jpg'))
-    for i in range(len(data_list)):
-        img = cv2.imread(data_list[i], cv2.IMREAD_COLOR)
+    data_lst = sorted(glob.glob('frames/*.jpg'))
+    for i in range(len(data_lst)):
+        img = cv2.imread(data_lst[i], cv2.IMREAD_COLOR)
         img_siz = img.shape
         img_res = resize(img, output_shape=(IMG_SIZE, IMG_SIZE, 3))
         img_res *= 255
@@ -23,4 +23,4 @@ def inpainting(IMG_SIZE,mask_data):
         res = inpaint(img_dt,mask)
         res_res = resize(res, output_shape=img_siz)
         res_res *= 255
-        cv2.imwrite('frames_output/'+data_list[i][7:12]+'.jpg',res_res)
+        cv2.imwrite('frames_output/'+data_lst[i][7:12]+'.jpg',res_res)
