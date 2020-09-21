@@ -35,7 +35,6 @@ def main():
     for i in data_list:
         os.remove('frames/'+i[7:])
         os.remove('frames_output/'+i[7:])    
-    
     os.rmdir('frames/')
     os.rmdir('frames_output/')
     print('Done!')
