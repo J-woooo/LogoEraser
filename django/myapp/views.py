@@ -43,7 +43,7 @@ from refactoring.preprocessing import *
         # return render(request, 'result.html', {'contents' : contents})
 
 def result(request):
-    contents = logo_eraser('./media/documents/stellla_cut.mp4')
+    contents = logo_eraser('./media/documents/adidas.mp4')
     return render(request, 'result.html', {'contents' : contents})
 
 def real_result(request):

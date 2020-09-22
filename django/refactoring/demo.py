@@ -8,15 +8,15 @@ import prediction
 import inpainting
 
 
-def main():    
-    videofilename=input('videoname: ')
+def logo_eraser(videoname):    
+    # videofilename=input('videoname: ')
     outvideofilename = videofilename + '_outputvideo.mp4'
 
-    os.makedirs('frames')
-    os.makedirs('frames_output')
+    os.makedirs('./frames')
+    os.makedirs('./frames_output')
 
-    save_path = 'frames/'
-    saved_path = 'frames_output/'
+    save_path = './frames/'
+    saved_path = './frames_output/'
     
     fps_set = 24
     IMG_siz = 512
@@ -39,6 +39,5 @@ def main():
     os.rmdir('frames_output/')
     print('Done!')
 
-if __name__ == '__main__':
-    main()
+    return outvideofilename
 
