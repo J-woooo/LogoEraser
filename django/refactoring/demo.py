@@ -2,10 +2,10 @@ import matplotlib
 matplotlib.use('agg')
 import os
 
-import image_processing
-import preprocessing
-import prediction
-import inpainting
+from . import image_processing
+from . import preprocessing
+from . import prediction
+from . import inpainting
 
 
 def logo_eraser(videoname):    
