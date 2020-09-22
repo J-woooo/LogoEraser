@@ -2,6 +2,7 @@ from django.shortcuts import redirect, render
 from .models import Document
 from .forms import DocumentForm
 from django.http import HttpResponse
+import os
 
 
 def my_view(request):
@@ -37,14 +38,19 @@ from refactoring.preprocessing import *
 
 
 
-# def logo_eraser(request):
-    # if request.method == 'POST':
-        # contents = logo_eraser('./media/documents/stella.mp4')
-        # return render(request, 'result.html', {'contents' : contents})
-
 def result(request):
-    contents = logo_eraser('./media/documents/adidas.mp4')
-    return render(request, 'result.html', {'contents' : contents})
+    input_movie_path = './media/documents/'
+    movie_name = [f for f in os.listdir(input_movie_path) if os.path.isfile(os.path.join(input_movie_path, f))]
+    contents = logo_eraser(input_movie_path + movie_name[0])
+    os.remove(input_movie_path + movie_name[0])
+    movie_name = [f for f in os.listdir(input_movie_path) if os.path.isfile(os.path.join(input_movie_path, f))]
+    content = {'movie_name' : movie_name[0]}
+    return render(request, 'result.html', content)
 
 def real_result(request):
-    return render(request, 'real_result.html', {'contents' : contents})
+    input_movie_path = './media/documents/'
+    movie_name = [f for f in os.listdir(input_movie_path) if os.path.isfile(os.path.join(input_movie_path, f))]
+    response = HttpResponse(open(input_movie_path + movie_name[0], 'rb').read())
+    response['Content-Type'] = type="video/mp4"
+    response['Content-Disposition'] = 'attachment; filename= ' + movie_name[0]
+    return response

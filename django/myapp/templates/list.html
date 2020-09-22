@@ -1,12 +1,15 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
+        <link rel="stylesheet" href="{% static 'style.css' %}">
         <title>File Upload Example</title>
     </head>
 
     <body>
-        <h1> LOGO Eraser</h1>
+        <h1>지움지움</h1>
        
         <!-- Upload form. Note enctype attribute! -->
         <form action="{% url "my-view" %}" method="post" enctype="multipart/form-data">
@@ -19,14 +22,14 @@
             <p>
                 {{ form.docfile.errors }}
                 {{ form.docfile }}
+                <input type="submit" value="Upload"/>
             </p>
-
-            <p><input type="submit" value="Upload"/></p>
-            <br>
-            <br>
         </form>
 
-         <!-- List of uploaded documents -->
+        <a href='/result'> 지움지움 실행</a>
+        <br>
+        <br>
+         <!-- List of uploaded documents
          {% if documents %}
             All documents in the database:
             <ul>
@@ -36,10 +39,11 @@
             </ul>
         {% else %}
             <p>No documents.</p>
-        {% endif %}
+        {% endif %} -->
 
         <video autoplay controls loop muted preload="auto" method=='POST'>
-            <source src=".\media\documents\stellla.mp4" type="video/mp4">
+            <source src="../static/stellla.mp4" type="video/mp4">
         </video>
     </body>
+    
 </html>

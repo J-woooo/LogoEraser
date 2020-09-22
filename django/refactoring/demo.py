@@ -8,7 +8,7 @@ from . import prediction
 from . import inpainting
 
 
-def logo_eraser(videoname):    
+def logo_eraser(videofilename):    
     # videofilename=input('videoname: ')
     outvideofilename = videofilename + '_outputvideo.mp4'
 
@@ -18,13 +18,13 @@ def logo_eraser(videoname):
     save_path = './frames/'
     saved_path = './frames_output/'
     
-    fps_set = 24
+    fps_set = 25
     IMG_siz = 512
     
     image_processing.video2frame(videofilename,save_path)
     img_data, data_list = preprocessing.preprocessing(save_path,IMG_siz)
     print('preprocessing done')
-    model = prediction.call_model('pred_model')
+    model = prediction.call_model(r'.\refactoring\pred_model')
     preds = prediction.predict(model,img_data)
     mask_data = prediction.postprocessing(preds,IMG_siz)
     print('predict done')
